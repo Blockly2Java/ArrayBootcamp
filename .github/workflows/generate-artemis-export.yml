@@ -95,10 +95,10 @@ jobs:
           TEMPLATE_REPO="${REPO_OWNER}/${EXERCISE_SHORT_NAME}_template"
           TEMPLATE_SHA=$(gh api repos/$TEMPLATE_REPO/commits/${{ steps.branches.outputs.template-branch }} --jq '.sha')
           echo "Template SHA: $TEMPLATE_SHA"
-          gh api -m POST repos/$TEMPLATE_REPO/git/refs -f ref="refs/tags/$TAG_NAME" -f sha="$TEMPLATE_SHA" || echo "Failed to tag template (maybe tag already exists)"
+          gh api -X POST repos/$TEMPLATE_REPO/git/refs -f ref="refs/tags/$TAG_NAME" -f sha="$TEMPLATE_SHA" || echo "Failed to tag template (maybe tag already exists)"
           
           SOLUTION_REPO="${REPO_OWNER}/${EXERCISE_SHORT_NAME}_solution"
           SOLUTION_SHA=$(gh api repos/$SOLUTION_REPO/commits/${{ steps.branches.outputs.solution-branch }} --jq '.sha')
           echo "Solution SHA: $SOLUTION_SHA"
-          gh api -m POST repos/$SOLUTION_REPO/git/refs -f ref="refs/tags/$TAG_NAME" -f sha="$SOLUTION_SHA" || echo "Failed to tag solution (maybe tag already exists)"
+          gh api -X POST repos/$SOLUTION_REPO/git/refs -f ref="refs/tags/$TAG_NAME" -f sha="$SOLUTION_SHA" || echo "Failed to tag solution (maybe tag already exists)"
 
