@@ -8,7 +8,7 @@
 ## Abstract
 
 <!-- START Adjust for exercise -->
-TODO write an abstract for the exercise
+This exercise introduces fundamental operations on Java arrays. Students practice creating arrays, accessing elements by index, iterating over array contents, modifying array elements, and computing aggregate values. The seven tasks progressively build array proficiency — from basic declaration and element access to traversal and accumulation patterns.
 <!-- END Adjust for exercise -->
 
 Detailed exercise instructions can be found in the README file of the template repository.
