@@ -8,12 +8,12 @@ skinparam {
 }  
 
 class Main {
-   {static} + void main()
-   {static} + int[] aufgabe1()
-   {static} + int[] aufgabe2(int[] arr)
-   {static} + int aufgabe3(int[] arr)
-   {static} + int aufgabe4(int[] arr)
-   {static} + int aufgabe5(int[] arr)
+   + void main()
+   + int[] aufgabe1()
+   + int[] aufgabe2(int[] arr)
+   + int aufgabe3(int[] arr)
+   + int aufgabe4(int[] arr)
+   + int aufgabe5(int[] arr)
 }
 
 @enduml
