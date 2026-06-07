@@ -10,10 +10,12 @@ skinparam {
 class Main {
    + void main()
    + int[] aufgabe1()
-   + int[] aufgabe2(int[] arr)
-   + int aufgabe3(int[] arr)
+   + double[] aufgabe2()
+   + String aufgabe3(String[] arr)
    + int aufgabe4(int[] arr)
-   + int aufgabe5(int[] arr)
+   + void aufgabe5(String[] arr)
+   + int[] aufgabe6(int[] arr)
+   + int aufgabe7(int[] arr)
 }
 
 @enduml
