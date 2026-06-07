@@ -99,6 +99,19 @@
 			//////////////////////////////////////////////////////////
 			////////////////// DOCKER TESTING ////////////////////////
 			{
+				"label": "fix gradle permissions",
+				"type": "shell",
+				"command": "sudo chown -R 1000:1000 .gradle",
+				"options": {
+					"cwd": "${workspaceFolder}"
+				},
+				"problemMatcher": [],
+				"presentation": {
+					"reveal": "never",
+					"panel": "new"
+				}
+			},
+			{
 				"label": "test solution docker",
 				"type": "shell",
 				"command": "docker compose run --rm artemis-solution",
@@ -319,7 +332,10 @@
 				"type": "node",
 				"request": "launch",
 				"name": "Test Solution (docker)",
-				"preLaunchTask": "test solution docker",
+				"preLaunchTask": [
+					"fix gradle permissions",
+					"test solution docker"
+				],
 				"postDebugTask": "open solution test results",
 				"runtimeExecutable": "echo"
 			},
@@ -327,7 +343,10 @@
 				"type": "node",
 				"request": "launch",
 				"name": "Test Template (docker)",
-				"preLaunchTask": "test template docker",
+				"preLaunchTask": [
+					"fix gradle permissions",
+					"test template docker"
+				],
 				"postDebugTask": "open template test results",
 				"runtimeExecutable": "echo"
 			}
