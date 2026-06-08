@@ -88,10 +88,13 @@ jobs:
       - name: Tag template and solution repos
         if: github.event_name == 'release'
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          DEFAULT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG_NAME: ${{ github.event.release.tag_name }}
           REPO_OWNER: ${{ github.repository_owner }}
         run: |
+          export GH_TOKEN="${GH_TOKEN:-$DEFAULT_TOKEN}"
+          
           TEMPLATE_REPO="${REPO_OWNER}/${EXERCISE_SHORT_NAME}_template"
           TEMPLATE_SHA=$(gh api repos/$TEMPLATE_REPO/commits/${{ steps.branches.outputs.template-branch }} --jq '.sha')
           echo "Template SHA: $TEMPLATE_SHA"
